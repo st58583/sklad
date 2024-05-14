@@ -1,5 +1,5 @@
 <?php
-$res = sql("SELECT sto_id, sto_insert_dt, itm_nazev, sto_price, sto_count, sup_nazev
+$res = sql("SELECT sto_id, sto_insert_dt, itm_nazev, sto_price, sto_count, sup_nazev, sup_ico
 	FROM storage 
 	LEFT JOIN items ON itm_id = sto_item
 	LEFT JOIN suppliers ON sup_id = sto_supplier
@@ -13,6 +13,7 @@ if (sql_count($res)){
 	print '<th>Datum</th>';
 	print '<th>Zboží</th>';
 	print '<th>Dodavatel</th>';
+	print '<th>IČO</th>';
 	print '<th>Cena</th>';
 	print '<th>Počet</th>';
 	print '</tr>';
@@ -24,6 +25,7 @@ if (sql_count($res)){
 		print '<td>'. date_out($row->sto_insert_dt) .'</td>';
 		print '<td>'. $row->itm_nazev .'</td>';
 		print '<td>'. $row->sup_nazev .'</td>';
+		print '<td>'. $row->sup_ico .'</td>';
 		print '<td>'. money($row->sto_price) .'</td>';
 		print '<td>'. $row->sto_count .'</td>';
 		print '</tr>';
