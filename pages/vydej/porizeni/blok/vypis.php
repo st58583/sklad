@@ -28,7 +28,7 @@ if (sql_count($res)){
 		print '<td>'. $typ_arr[$row->bil_type] .'</td>';
 		print '<td>'. date_out($row->bil_date) .'</td>';
 		print '<td>'. ($row->bil_paid != '0000-00-00' ? 'Ano' : 'Ne') .'</td>';
-		print '<td>'. '<a href="./vydej/porizeni/'. $typ_page_arr[$row->bil_type] .'/'. $row->bil_id .'"><img src="./img/detail.svg" alt="Detail" title="Detail" class="svg_icon" /></a>' .' '. '<a href="./vydej/porizeni/storno/'. $row->bil_id .'"><img src="./img/storno.svg" alt="Storno" title="Storno" class="svg_icon" /></a>' .'</td>';
+		print '<td>'. '<a href="./vydej/porizeni/'. $typ_page_arr[$row->bil_type] .'/'. $row->bil_id .'"><img src="./img/detail.svg" alt="Detail" title="Detail" class="svg_icon" /></a>' .' '. '<a href="./vydej/porizeni/storno/'. $row->bil_id .'"><img src="./img/storno.svg" alt="Storno" title="Storno" class="svg_icon" /></a>'.' '. '<a href="./vydej/porizeni/zaplaceno/'. $row->bil_id .'"><img src="./img/paid.svg" alt="Zaplaceno" title="Zaplaceno" class="svg_icon" /></a>' .'</td>';
 		print '</tr>';
 	}
 	

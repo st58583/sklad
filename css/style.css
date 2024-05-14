@@ -80,6 +80,13 @@ html {scroll-behavior: smooth;}
 .p15 {padding: 15px;}
 .p20 {padding: 20px;}
 
+.m0 {margin: 0px;}
+.m3 {margin: 3px;}
+.m5 {margin: 5px;}
+.m10 {margin: 10px;}
+.m15 {margin: 15px;}
+.m20 {margin: 20px;}
+
 .fg1 {flex-grow: 1;}
 .fg2 {flex-grow: 2;}
 .fg3 {flex-grow: 3;}

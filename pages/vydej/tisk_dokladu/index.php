@@ -11,7 +11,7 @@ print columns_start();
 //--------------------------------//
 print column_start();
 
-print blok_start("Vydané paragony a faktury");
+print blok_start("Vydané paragony a faktury připravené k tisku");
 	include('./pages/vydej/tisk_dokladu/blok/vypis.php');
 print blok_end();
 

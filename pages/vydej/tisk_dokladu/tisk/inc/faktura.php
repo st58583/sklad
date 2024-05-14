@@ -48,7 +48,7 @@ if ($row = sql_obj($res)){
 <html lang="cs">
 <head>
 	<title>Faktura</title>
-	<base href="http://{%SERVER%}/" />
+	<base href="http://localhost/sklad/" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="css/style.css?2024-05-13e" />

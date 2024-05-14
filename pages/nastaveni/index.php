@@ -9,6 +9,8 @@ if ($row = sql_obj($res)) fill_data($row, $cols, "acc");
 
 //--------------------------------------------------------------------------------------------
 
+include('./pages/nastaveni/inc/post.php');
+
 #POST
 p2d("ico");
 p2d("dic");
@@ -60,6 +62,10 @@ print column_end();
 //--------------------------------//
 
 print column_start();
+print blok_start("RESET");
+print row_switch('show_reset', 'Zobrazit reset', '', array("change" => "show_reset();"));
+print '<button name="reset" class="m5 hidden" value="reset" id="reset_btn">RESET</button>';
+print blok_end();
 print column_end();
 
 //--------------------------------//
@@ -67,3 +73,13 @@ print columns_end();
 
 print save();
 ?>
+<script type="text/javascript" id="script_settings">
+function show_reset(){
+	const val = get_field('show_reset');
+	
+	if (val == 'Y') remove_class(id('reset_btn'), 'hidden');
+	else add_class(id('reset_btn'), 'hidden');
+}
+
+del_el(id('script_settings'));
+</script>

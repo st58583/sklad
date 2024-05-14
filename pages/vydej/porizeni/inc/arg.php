@@ -7,4 +7,8 @@ if (g_arg(0) == "storno" && g_arg(1)) {
 	
 	Location('../');
 }
+
+if (g_arg(0) == "zaplaceno" && g_arg(1)) {
+	sql("UPDATE bills SET bil_paid = NOW() WHERE bil_id = '". g_arg(1) ."'");
+}
 ?>
