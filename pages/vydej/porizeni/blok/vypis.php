@@ -36,6 +36,6 @@ if (sql_count($res)){
 	print '</table>';
 	print '</div>';
 } else {
-	info("Dosud nebyla přijata žádná položka");
+	info("Dosud nebyla vydána žádná položka");
 }
 ?>
