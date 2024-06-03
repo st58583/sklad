@@ -192,8 +192,8 @@ div.blok_div {border-radius: 0px 0px 5px 5px; overflow: hidden; margin-top: -5px
 table.blok_table {width: 100%; border-collapse: collapse; text-align: center;}
 table.blok_table td, table.blok_table th {padding: 5px;}
 table.blok_table thead, table.blok_table tfoot {background: #000; color: #fff; font-weight: bold;}
-table.blok_table tbody {background: #AAA;}
-table.blok_table tr:nth-child(even) {background: #DCDCDC;}
+table.blok_table tbody {background: #B3E5FC;}
+table.blok_table tr:nth-child(even) {background: #E1F5FE;}
 table.blok_table td {border: 1px solid lightgray; padding: 3px;}
 table.blok_table td a {color: #000; text-decoration: none; font-weight: bold;}
 table.blok_table tr:last-child td {border-bottom: 0;}
