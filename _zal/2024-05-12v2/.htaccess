@@ -1,0 +1,4 @@
+RewriteEngine On
+RewriteRule ^([^.]+)?$ index.php?page=$1 [L]
+RewriteCond %{HTTP_REFERER} !^http://localhost/sklad/.*$ [NC]
+RewriteCond %{HTTP_REFERER} !^$

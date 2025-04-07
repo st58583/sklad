@@ -5,9 +5,9 @@
 	<base href="http://{%SERVER%}/" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="css/style.css?2024-05-14" />
+	<link rel="stylesheet" href="css/style.css?2024-06-03" />
 	<!--<link rel="stylesheet" media="print" href="./css/print.css" />-->
-	<script type="text/javascript" src="js/js.js?2024-05-14"></script>
+	<script type="text/javascript" src="js/js.js?2024-06-03"></script>
 </head>
 <body>
 	<header>

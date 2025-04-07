@@ -1,0 +1,40 @@
+items
+- zbo_id
+- zbo_nazev
+- zbo_kod
+- zbo_vyrobce
+
+tags
+- tag_id
+- tag_name
+
+item_tags
+- ita_item
+- ita_tag
+
+storage
+- sto_id
+- sto_insert_dt
+- sto_item
+- sto_price
+- sto_count
+
+bills
+- bil_id
+- bil_insert_dt
+
+bill_items
+- bii_id
+- bii_bill
+- bii_count
+
+account
+- acc_nazev
+- acc_ico
+- acc_dic
+- acc_obec
+- acc_ulice
+- acc_psc
+- acc_cp
+- acc_telefon
+- acc_email

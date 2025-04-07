@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+	<title>SKLAD</title>
+	<!--<base href="" />-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="UTF-8">
+	<!--<link rel="stylesheet" href="./css/css.css" />-->
+	<!--<link rel="stylesheet" media="print" href="./css/print.css" />-->
+	<!--<script type="text/javascript" src="./js/js.js"></script>-->
+	<style type="text/css">
+	* {margin: 0; padding: 0; box-sizing: border-box;}
+	header {position: absolute; left: 0; right: 0; width: 100%; border-bottom: 1px solid #1E90FF; z-index: 100;}
+	header > div {max-width: 1170px; margin: auto; padding: 0 15px; display: flex; align-items: center; justify-content: space-between;}
+	header .logo img {vertical-align: middle;}
+	header nav > div {display: none;}
+	header nav ul {list-style: none;}
+	
+	header nav.open {transform: none;}
+	
+	header nav > ul > li {display: inline-block;}
+	header nav .menu_dropdown {position: relative;}
+	header nav > ul > li:not(:last-child) {margin-right: 40px}
+	header > div a {text-decoration: none; color: #1E90FF; text-transform: initial; font-size: 16pt; line-height: 1.5; display: block;}
+	header > div > nav > ul > li > a {padding: 24px 0;}
+	header > div > nav > ul > .menu_dropdown > a {padding-right: 15px;}
+	header > div i {cursor: pointer; font-size: 10px; pointer-event: none; user-select: none; position: absolute; top: calc(50% - 5px); right: 0; width: 10px; height: 10px; display: block;}
+	
+	ul.sub_menu {position: absolute; top: 100%; left: 0; width: 230px; padding: 15px 0; background-color: #1E90FF; box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 99; transform-origin: top; transform: scaleY(0); visibility: hidden; opacity: 0;}
+	ul.sub_menu ul.sub_menu {left: 100%; top: 0;}
+	header > div > nav li:hover > ul.sub_menu {opacity: 1; transform: none; visibility: visible; transition: all 0.5s ease;}
+	
+	/*header > div > nav > ul > li > ul {position: absolute; top: 100%; left: 0; width: 230px; padding: 15px 0; background-color: #1E90FF; box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 99;}*/
+	header > div > nav > ul > li ul a {padding: 6px 24px; color: #fff;}
+	header > div > nav > ul > li ul i {transform: rotate(-45deg) !important; border-color: #fff !important; right: 40px;}
+	
+	/*header > div > nav > ul > li > ul > li > ul {position: absolute; left: 121%; top: 0; width: 230px; padding: 15px 0; background-color: #1E90FF; box-shadow: 0 0 5px rgba(0,0,0,0.5); z-index: 99;}*/
+	
+	header > div > nav > ul > li span {background-image: linear-gradient(#fff, #fff); background-size: 0% 1px; background-repeat: no-repeat; background-position: 0 100%; transition: background-size 0.5s ease;}
+	header > div > nav > ul > li li:hover > a > span {background-size: 100% 1px;}
+	
+	.header_right {display: flex;}
+	.header_right > * {margin-left: 25px;}
+	
+	.header_right #open_menu_btn {display: none;}
+	
+	@media(max-width: 991px){
+		header {padding: 12px 0;}
+		header nav {position: fixed; right: 0; top: 0; width: 320px; height: 100%; background-color: #1E90FF; padding: 15px 30px 30px; overflow-y: auto; z-index: 99; transform: translateX(100%);}
+		header nav > div {display: flex; align-items: center; justify-content: space-between; margin-bottom: 25px;}
+		header nav > div #close_menu_btn {width: 35px; height: 35px; position: relative; display: inline-flex; align-items: center; justify-content: center; background-color: transparent; cursor: pointer; border: none;}
+		header nav > div #close_menu_btn::before, header nav > div #close_menu_btn::after {content:''; position: absolute; width: 80%; height: 2px; background-color: #fff;}
+		header nav > div #close_menu_btn::before {transform: rotate(45deg);}
+		header nav > div #close_menu_btn::after {transform: rotate(-45deg);}
+		header nav > ul > li {display: block;}
+		header nav > ul > li:not(:last-child) {margin-right: 0;}
+		header nav li {border-bottom: 1px solid rgba(255,255,255,0.25);}
+		header nav li:first-child {border-top: 1px solid rgba(255,255,255,0.25);}
+		header nav > ul > li > a {color: #fff; padding: 12px 0 !important;}
+		header nav > ul > .dropdown > a {padding-right: 34px;}
+		header nav i {border-color: #fff !important; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; top: 18px;}
+		header > div > nav > ul > li ul i {transform: rotate(45deg) !important;}
+		header nav .sub_menu {position: static; opacity: 1; transform: none; visibility: visible; padding: 0; transition: none; box-shadow: none; width: 100%; display: none;}
+		header nav .sub_menu li:last-child {border: none;}
+		header nav .sub_menu a {padding: 12px 0 12px 15px;}
+		header nav .sub_menu .sub_menu a {padding-left: 30px;}
+		header nav .sub_menu span {background-image: none;}
+		header nav .sub_menu i {right: 0;}
+		.header_right #open_menu_btn {display: inline-flex; height: 40px; width: 44px; align-items: center; justify-content: center; cursor: pointer; position: relative; background-color: transparent; border: none;}
+		.header_right #open_menu_btn span {height: 2px; width: 30px; background-color: #1E90FF; position: absolute;}
+		.header_right #open_menu_btn span:first-child {transform: translateY(-8px);}
+		.header_right #open_menu_btn span:last-child {transform: translateY(8px);}
+		header nav .menu_dropdown.active > i {transform: rotate(-135deg) !important;}
+		header nav .menu_dropdown.active > .sub_menu {display: block;}
+	}
+	
+	body {overflow: hidden;}
+	
+	i.menu_dd_down {border-right: 3px solid #1E90FF; border-bottom: 3px solid #1E90FF; transform: rotate(45deg);}
+	i.menu_dd_up {border-right: 3px solid #1E90FF; border-bottom: 3px solid #1E90FF; transform: rotate(225deg);}
+	</style>
+</head>
+<body>
+	<header>
+		<div>
+			<div class="logo"><img src="./img/logo.png" alt="LOGO" title="LOGO" /></div>
+			<nav>
+				<div>
+					<div class="logo"><img src="./img/logo.png" alt="LOGO" title="LOGO" /></div>
+					<button type="button" id="close_menu_btn"></button>
+				</div>
+				<ul>
+					<li><a href="#">Domů</a></li>
+					<li class="menu_dropdown">
+						<a href="#">Příjem</a>
+						<i class="menu_dd_down">  </i>
+						<ul class="sub_menu">
+							<li class="menu_dropdown">
+								<a href="#"><span>Pořízení</span></a>
+								<i class="menu_dd_down"></i>
+								<ul class="sub_menu">
+									<li><a href="#"><span>Příjem na sklad</span></a></li>
+									<li><a href="#"><span>Převody</span></a></li>
+								</ul>
+							</li>
+							<li><a href="#"><span>Tisk dokladů</span></a></li>
+						</ul>
+					</li>
+					<li class="menu_dropdown">
+						<a href="#">Výdej</a>
+						<i class="menu_dd_down"></i>
+					</li>
+					<li><a href="#">Nastavení</a></li>
+				</ul>
+			</nav>
+			<div class="header_right">
+				<!--<button type="button" class="search_btn"></button>-->
+				<button type="button" id="open_menu_btn">
+					<span></span>
+					<span></span>
+					<span></span>
+				</button>
+			</div>
+		</div>
+	</header>
+	<main>
+		<section>
+		</section>
+	</main>
+	
+	<script type="text/javascript">
+	const menu = document.getElementsByTagName("nav")[0];
+	const open_menu_btn = document.getElementById("open_menu_btn");
+	const close_menu_btn = document.getElementById("close_menu_btn");
+	
+	open_menu_btn.addEventListener("click", function(){
+		menu.classList.toggle("open");
+		menu.style.transition = "transform 0.5s ease";
+	});
+	
+	close_menu_btn.addEventListener("click", function(){
+		menu.classList.toggle("open");
+		menu.style.transition = "transform 0.5s ease";
+	});
+	
+	menu.addEventListener("transitionend", function(){
+		this.removeAttribute("style");
+	});
+	
+	menu.querySelectorAll(".menu_dropdown > i").forEach((arrow) => {
+		arrow.addEventListener("click", function(){
+			this.closest(".menu_dropdown").classList.toggle("active");
+		});
+	});
+	</script>
+</body>
+</html>

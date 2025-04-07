@@ -1,9 +1,9 @@
 <?php
 #DB
-const MYSQL_server = '--DB_server--';
-const MYSQL_login = '--DB_login--';
-const MYSQL_password = '--DB_password--';
-const MYSQL_db = '--DB_nazev--';
+const MYSQL_server = 'localhost';
+const MYSQL_login = 'root';
+const MYSQL_password = 'rancor';
+const MYSQL_db = 'sklad';
 #SERVER
-const SERVER = 'localhost/sklad'; //edit to suit your domain
+const SERVER = 'localhost/sklad';
 ?>
